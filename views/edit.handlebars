@@ -1,0 +1,23 @@
+<h1>Edit Exercise: {{data.name}}</h1>
+
+<form action="/" method="post">
+    <fieldset>
+        <legend>Edit Exercise</legend>
+        <label for="name">Exercise Name:</label>
+        <input type="text" id="name" name="name" value="{{data.name}}">
+        <label for="reps">Reps:</label>
+        <input type="number" id="reps" name="reps" value={{data.reps}}>
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" value={{data.weight}}>
+        <label for="units">Units:</label>
+        <select id="units" name="units">
+            <option value="lbs">lbs</option>
+            <option value="kgs" {{#if_eq data.lbs 0}}selected="selected"{{/if_eq}}>kgs</option>
+        </select>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" value={{data.date}}>
+        <input type="hidden" name="buttonStatus" value="edit">
+        <input type="hidden" name="editID" value={{data.id}}>
+        <button type="submit" id="editExercise">Submit</button>
+    </fieldset>
+</form>
